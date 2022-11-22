@@ -7,7 +7,6 @@ export const API_KEY = '6954861898bd5fd71e3f9befcd21e7fe';
 const ListMovies = () => {
 
     const [movies, setMovies] = useState([]);
-
     // const URL = `https://api.themoviedb.org/3/movie/?api_key=${API_KEY}`;
     const URL = `https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22&api_key=${API_KEY}`;
 
@@ -34,6 +33,7 @@ const ListMovies = () => {
                 />
             )}
         </div>
+
     );
 };
 
