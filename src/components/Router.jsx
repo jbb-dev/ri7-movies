@@ -8,7 +8,6 @@ import Header from './Header';
 import ListMovies from './ListMovies';
 import MovieDetail from './MovieDetail';
 import Profile from './Profile';
-import ProfileBis from './ProfileBis';
 
 export const MyRoutes = {
   LOGIN: '/',
@@ -33,10 +32,11 @@ const AuthRoutes = () => {
 
 const Router = () => {
 
+  const { store } = useContext(MyContext);
+
   return (
     <BrowserRouter>
-      <AppContext>
-        <Header />
+        {store.isUserAuth && <Header />}
         <Routes>
             {/* ROUTES PUBLIQUES */}
             <Route path={MyRoutes.LOGIN} element={<Login />} />
@@ -45,11 +45,9 @@ const Router = () => {
             <Route element={<AuthRoutes />}>
               <Route path={MyRoutes.MOVIES} element={<ListMovies />} />
               <Route path={`${MyRoutes.DETAIL_MOVIE}:id`} element={<MovieDetail />} />
-              {/* <Route path={MyRoutes.PROFILE} element={<Profile />} /> */}
-              <Route path={MyRoutes.PROFILE} element={<ProfileBis />} />
+              <Route path={MyRoutes.PROFILE} element={<Profile />} />
             </Route>
         </Routes>
-      </AppContext>
     </BrowserRouter>
   );
 };

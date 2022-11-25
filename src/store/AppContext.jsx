@@ -8,7 +8,18 @@ export const AppContext = ({children}) => {
 
     const [store, setStore] = useState({
         isUserAuth: false,
-        theme: 'light'
+        theme: 'light',
+        user: {
+            email: "",
+            password: "",
+            firstname: "",
+            lastname: "",
+            biography: "",
+            postalCode: "",
+            city: "",
+            birthdate: "",
+            avatar: "",
+        }
     });
 
     return (
